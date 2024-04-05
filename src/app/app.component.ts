@@ -15,6 +15,8 @@ import { UserComponent } from './user/user.component';
       <app-server-status></app-server-status>
     </section>
     <p>Welcome to {{ city }}! Now is year {{ 2023 + 1 }}</p>
+    <div [contentEditable]="isDivEditable">This paragraph is editable</div>
+    <h2 [contentEditable]="isDivEditable">This title is also editable</h2>
   `,
   styles: `
     :host{
@@ -24,4 +26,5 @@ import { UserComponent } from './user/user.component';
 })
 export class AppComponent {
   city: string = 'Taoyuan City';
+  isDivEditable = true;
 }
