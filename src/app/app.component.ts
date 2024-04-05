@@ -5,9 +5,13 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  template: `Welcome to Angular!`,
-  styleUrl: './app.component.css',
+  template: `Welcome to {{ city }}! Now is year {{ 2023 + 1 }}`,
+  styles: `
+    :host{
+      color: #a144eb;
+    }
+  `,
 })
 export class AppComponent {
-  title = 'angularOnlineVersionTutorial';
+  city: string = 'Taoyuan City';
 }
