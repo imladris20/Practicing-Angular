@@ -4,13 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-user',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      user works!
-    </p>
-  `,
-  styleUrl: './user.component.css'
+  template: ` <p>Username: {{ username }}</p> `,
+  styleUrl: './user.component.css',
 })
 export class UserComponent {
-
+  username = 'Po Lien, aspiring programmer';
 }
