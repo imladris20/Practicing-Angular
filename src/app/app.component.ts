@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
   imports: [RouterOutlet, UserComponent, ServerStatusComponent],
   template: `
     <section>
-      <app-user></app-user>
+      <app-user [backNumber]="29" exampleUser="haha"></app-user>
     </section>
     <section>
       <app-server-status></app-server-status>
@@ -25,7 +25,7 @@ import { UserComponent } from './user/user.component';
   `,
   styles: `
     :host{
-      color: #a144eb;
+      color: hotpink;
     }
   `,
 })

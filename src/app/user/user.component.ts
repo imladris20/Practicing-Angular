@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,10 +10,14 @@ import { Component } from '@angular/core';
     @for(user of users ; track user.id){
     <h3>{{ user.name }}</h3>
     }
+    <h4>BackNumber props from app component: {{ backNumber }}</h4>
+    <h4>exampleUser props from app component: {{ exampleUser }}</h4>
   `,
   styleUrl: './user.component.css',
 })
 export class UserComponent {
+  @Input() backNumber!: number;
+  @Input() exampleUser!: string;
   mainUser = 'Po Lien, aspiring programmer';
   users = [
     { id: 0, name: 'Sarah' },
