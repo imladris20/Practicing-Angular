@@ -17,6 +17,11 @@ import { UserComponent } from './user/user.component';
     <p>Welcome to {{ city }}! Now is year {{ 2023 + 1 }}</p>
     <div [contentEditable]="isDivEditable">This paragraph is editable</div>
     <h2 [contentEditable]="isDivEditable">This title is also editable</h2>
+    <button (click)="greeting()">Greeting in console</button>
+    <section (mouseover)="surprise()" (mouseleave)="hideSurprice()">
+      There's a secret message for you, hover to reveal 👀
+      {{ message }}
+    </section>
   `,
   styles: `
     :host{
@@ -27,4 +32,16 @@ import { UserComponent } from './user/user.component';
 export class AppComponent {
   city: string = 'Taoyuan City';
   isDivEditable = true;
+  message = '';
+
+  surprise: () => void = () => {
+    this.message = 'surprise mdfk!';
+  };
+
+  hideSurprice = () => {
+    this.message = '';
+  };
+  greeting: () => void = () => {
+    console.log('hello, there!');
+  };
 }
