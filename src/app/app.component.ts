@@ -37,8 +37,7 @@ export class AppComponent {
   surprise: () => void = () => {
     this.message = 'surprise mdfk!';
   };
-
-  hideSurprice = () => {
+  hideSurprice: () => void = () => {
     this.message = '';
   };
   greeting: () => void = () => {
