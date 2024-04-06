@@ -1,3 +1,4 @@
+import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AddTwoComponent } from './add-two/add-two.component';
@@ -14,7 +15,9 @@ import { UserComponent } from './user/user.component';
     ServerStatusComponent,
     AddTwoComponent,
     CommentsComponent,
+    NgOptimizedImage,
   ],
+  providers: [provideImgixLoader('http://localhost:4200/')],
   template: `
     <section>
       <app-user [backNumber]="29" exampleUser="haha"></app-user>
@@ -104,6 +107,21 @@ import { UserComponent } from './user/user.component';
       <p>Loading Comments</p>
       }
     </section>
+    <ul>
+      <li>
+        Static Image:
+        <img
+          ngSrc="/assets/logo.png"
+          alt="Angular logo"
+          width="100"
+          height="100"
+        />
+      </li>
+      <li>
+        Dynamic Image:
+        <!-- <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" /> -->
+      </li>
+    </ul>
   `,
   styles: `
     :host{
