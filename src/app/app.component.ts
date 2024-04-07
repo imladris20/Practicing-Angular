@@ -1,5 +1,6 @@
 import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { AddTwoComponent } from './add-two/add-two.component';
 import { CommentsComponent } from './comments/comments.component';
@@ -16,6 +17,7 @@ import { UserComponent } from './user/user.component';
     AddTwoComponent,
     CommentsComponent,
     NgOptimizedImage,
+    FormsModule,
   ],
   providers: [provideImgixLoader('http://localhost:4200/')],
   template: `
@@ -122,6 +124,15 @@ import { UserComponent } from './user/user.component';
         <!-- <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" /> -->
       </li>
     </ul>
+    <section>
+      <h1>Template Driven Form</h1>
+      <p>Favorite framework: {{ favoriteFramework }}</p>
+      <label for="framework">
+        Type your Favorite Framework:
+        <input id="framework" type="text" [(ngModel)]="favoriteFramework" />
+      </label>
+      <button (click)="showFramework()">Show Framework</button>
+    </section>
   `,
   styles: `
     :host{
@@ -135,6 +146,7 @@ export class AppComponent {
   isDivEditable = true;
   message = '';
   items = new Array();
+  favoriteFramework: string = '';
 
   surprise: () => void = () => {
     this.message = 'surprise mdfk!';
@@ -155,4 +167,7 @@ export class AppComponent {
     newItems.push(item);
     this.items = newItems;
   };
+  showFramework() {
+    alert(this.favoriteFramework);
+  }
 }
